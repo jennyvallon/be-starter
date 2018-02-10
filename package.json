@@ -1,0 +1,81 @@
+{
+  "name": "be-starer",
+  "version": "0.1.0",
+  "description": "Backend Starter",
+  "private": false,
+  "repository": {},
+  "license": "",
+  "readme": "",
+  "scripts": {
+    "lint": "eslint .",
+    "unit-test": "ENVIRONMENT=test PORT=5000 mocha ./**/**/*.test.js -r ./mocha.js",
+    "generate-coverage": "ENVIRONMENT=test PORT=5000 HOST=localhost istanbul cover _mocha ./**/**/*.test.js -r ./mocha.js",
+    "view-coverage": "open coverage/lcov-report/index.html",
+    "fix-lint": "./node_modules/.bin/eslint ./**/*.js --fix",
+    "start": ". ._ignore/env.sh && node server",
+    "coverage": "npm run generate-coverage && npm run view-coverage",
+    "test": "ENVIRONMENT=test PORT=5000 HOST=localhost npm run unit-test && npm run lint && npm run generate-coverage"
+  },
+  "engines": {
+    "node": "8.9.4"
+  },
+  "dependencies": {
+    "body-parser": "1.17.1",
+    "hapi": "17.2.0",
+    "hapi-swagger": "9.0.2",
+    "inert": "5.0.1",
+    "mongoose": "4.10.6",
+    "monk": "6.0.1",
+    "nconf": "0.10.0",
+    "vision": "5.3.1"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "chai-as-promised": "7.1.1",
+    "enzyme": "3.3.0",
+    "eslint": "4.17.0",
+    "inject-then": "2.0.9",
+    "istanbul": "1.1.0-alpha.1",
+    "jasmine": "2.6.0",
+    "mocha": "3.4.2",
+    "supertest": "3.0.0"
+  },
+  "eslintIgnore": [
+    "/coverage"
+  ],
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es6": true,
+      "node": true,
+      "mocha": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "rules": {
+      "array-bracket-spacing": [ 2, "never"],
+      "arrow-parens": [ 2,"always"],
+      "arrow-spacing": [ 2,{"before": true, "after": true}],
+      "brace-style": [ 2, "1tbs",{"allowSingleLine": false}],
+      "comma-spacing": [2, {"before": false, "after": true}],
+      "curly": [ 2, "all"],
+      "indent": [2, 4, { "SwitchCase": 1, "VariableDeclarator": 1}],
+      "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
+      "keyword-spacing": 2,
+      "linebreak-style": [ 2, "unix"],
+      "no-console": 0,
+      "no-trailing-spaces": 2,
+      "object-curly-spacing": [ 2, "never"],
+      "one-var": [ 2, "always"],
+      "prefer-template": 2,
+      "quote-props": [ 2, "as-needed"],
+      "quotes": [ 2, "single"],
+      "semi": [ 2, "always"],
+      "space-before-blocks": [ 2, "always"],
+      "space-before-function-paren": [ 2, {"anonymous": "always", "named": "never"}],
+      "space-infix-ops": [2, {"int32Hint": false}]
+    }
+  }
+}
